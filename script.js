@@ -3,37 +3,72 @@ function computerPlay() {
     return playOptions[Math.floor(Math.random() * 3)];
 };
 
+function playerPlay() {
+    let playerMove = prompt("What's your move? [Rock, Paper or Scissors]");
+    return playerMove.toLowerCase();
+}
+
 function playRound(playerSelection, computerSelection) {
-    playerSelection = playerSelection.toLowerCase();
     computerSelection = computerSelection.toLowerCase();
 
     if (playerSelection == computerSelection) {
-        return ("It's a tie! Both choose " + playerSelection);
+        console.log("It's a tie! Both choose " + playerSelection);
+        return -1;
     } else if (playerSelection == 'rock') {
         if (computerSelection == 'paper') {
-            return "You lose! Paper beats Rock";
+            console.log("You lose! Paper beats Rock");
+            return 0;
         } else if (computerSelection == 'scissors') {
-            return "You win! Rock beats Scissors";
+            console.log("You win! Rock beats Scissors");
+            return 1;
         };
     } else if (playerSelection == 'paper') {
         if (computerSelection == 'rock') {
-            return "You win! Paper beats Rock";
+            console.log("You win! Paper beats Rock");
+            return 1;
         } else if (computerSelection == 'scissors') {
-            return "You lose! Scissors beats Paper";
+            console.log("You lose! Scissors beats Paper");
+            return 0;
         };
     } else if (playerSelection == 'scissors') {
         if (computerSelection == 'rock') {
-            return "You lose! Rock beats Scissors";
+            console.log("You lose! Rock beats Scissors");
+            return 0;
         } else if (computerSelection == 'paper') {
-            return "You win! Scissors beats Paper";
+            console.log("You win! Scissors beats Paper");
+            return 1;
         };
     };
 };
 
-const playerSelection = 'Scissors';
-const computerSelection = computerPlay();
+function game() {
+    let playerPoints = 0;
+    let computerPoints = 0;
+    for (let i = 0; i < 5; i++) {
+        let playerSelection = playerPlay();
+        let computerSelection = computerPlay();
+        let roundResult = playRound(playerSelection, computerSelection);
+        
+        while (roundResult == -1) {
+            playerSelection = playerPlay();
+            computerSelection = computerPlay();
+            roundResult = playRound(playerSelection, computerSelection);
+        }
+        
+        if (roundResult == 0) {
+            computerPoints++;
+        } else if (roundResult == 1) {
+            playerPoints++;
+        }
+    };
+    if (playerPoints > computerPoints) {
+        console.log('You defeated the computer! Congratulations!');
+    } else {
+        console.log('Game over! Better luck next time');
+    }
+};
 
-console.log(playRound(playerSelection, computerSelection));
+game();
 
 
 
