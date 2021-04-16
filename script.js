@@ -50,6 +50,7 @@ function game() {
         let roundResult = playRound(playerSelection, computerSelection);
         
         while (roundResult == -1) {
+            console.log(`(Win-${playerPoints}/Loss-${computerPoints}) Round (${i + 1}/5)`);
             playerSelection = playerPlay();
             computerSelection = computerPlay();
             roundResult = playRound(playerSelection, computerSelection);
@@ -57,8 +58,14 @@ function game() {
         
         if (roundResult == 0) {
             computerPoints++;
+            console.log(`(Win-${playerPoints}/Loss-${computerPoints}) Round (${i + 1}/5)`);
         } else if (roundResult == 1) {
             playerPoints++;
+            console.log(`(Win-${playerPoints}/Loss-${computerPoints}) Round (${i + 1}/5)`);
+        }
+
+        if ((playerPoints == 3) || (computerPoints == 3)) {
+            break;
         }
     };
     if (playerPoints > computerPoints) {
@@ -70,16 +77,3 @@ function game() {
 
 game();
 
-
-
-
-/*
-If same input then it's a tie
-else if
-player 'rock' comp 'paper' = you lose
-player 'rock' comp 'scissors' = you win
-player 'paper' comp 'rock' = you win
-player 'paper' comp 'scissors' = you lose
-player 'scissors' comp 'rock' = you lose
-player 'scissors' comp 'paper' = you win
-*/
