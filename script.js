@@ -1,16 +1,23 @@
 function computerPlay() {
-    let playOptions = ['Rock', 'Paper', 'Scissors'];
+    let playOptions = ['rock', 'paper', 'scissors'];
     return playOptions[Math.floor(Math.random() * 3)];
 };
 
 function playerPlay() {
-    let playerMove = prompt("What's your move? [Rock, Paper or Scissors]");
-    return playerMove.toLowerCase();
+    let playOptions = ['rock', 'paper', 'scissors'];
+    let playerMove;
+    while (true) {
+        playerMove = prompt("What's your move? [Rock, Paper or Scissors]").toLowerCase();
+        for (let i = 0; i < 3; i++) {
+            if (playerMove == playOptions[i]) {
+                return playerMove;
+            }
+        }
+        alert('Invalid command, please insert [Rock, Paper or Scissors]');
+    }
 }
 
 function playRound(playerSelection, computerSelection) {
-    computerSelection = computerSelection.toLowerCase();
-
     if (playerSelection == computerSelection) {
         console.log("It's a tie! Both choose " + playerSelection);
         return -1;
