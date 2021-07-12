@@ -25,6 +25,16 @@ function appendText(feedResult) {
     playFeed.appendChild(paragraph);
 }
 
+function updateDOMScore() {
+    const roundScore = document.querySelector('#round');
+    const winScore = document.querySelector('#win');
+    const lossScore = document.querySelector('#loss');
+
+    roundScore.innerText = round;
+    winScore.innerText = playerPoints;
+    lossScore.innerText = computerPoints;
+}
+
 function playRound(playerSelection, computerSelection) {
     if (playerSelection == computerSelection) {
         let result = "It's a tie! Both choose " + playerSelection;
@@ -67,11 +77,15 @@ function score(roundResult) {
     if (roundResult == 0) {
         computerPoints++;
         round++;
-        console.log(`(Win-${playerPoints}/Loss-${computerPoints}) Round (${round}/5)`);
+        
+        updateDOMScore();
+        //console.log(`(Win-${playerPoints}/Loss-${computerPoints}) Round (${round}/5)`);
     } else if (roundResult == 1) {
         playerPoints++;
         round++;
-        console.log(`(Win-${playerPoints}/Loss-${computerPoints}) Round (${round}/5)`);
+
+        updateDOMScore();
+        //console.log(`(Win-${playerPoints}/Loss-${computerPoints}) Round (${round}/5)`);
     }
 
     if ((playerPoints == 3) || (computerPoints == 3)) {
@@ -108,6 +122,8 @@ playAgainBtn.addEventListener('click', (e) => {
     playerPoints = 0;
     computerPoints = 0;
     round = 0;
+
+    updateDOMScore();
 
     const playFeed = document.querySelector('.play-feed');
     playFeed.innerText = '';
