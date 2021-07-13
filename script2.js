@@ -2,21 +2,7 @@ function computerPlay() {
     let playOptions = ['rock', 'paper', 'scissors'];
     return playOptions[Math.floor(Math.random() * 3)];
 };
-/*
-function playerPlay() {
-    let playOptions = ['rock', 'paper', 'scissors'];
-    let playerMove;
-    while (true) {
-        playerMove = prompt("What's your move? [Rock, Paper or Scissors]").toLowerCase();
-        for (let i = 0; i < 3; i++) {
-            if (playerMove == playOptions[i]) {
-                return playerMove;
-            }
-        }
-        alert('Invalid command, please insert [Rock, Paper or Scissors]');
-    }
-}
-*/
+
 function appendText(feedResult) {
     const playFeed = document.querySelector('.play-feed');
     const paragraph = document.createElement('p');
@@ -90,10 +76,20 @@ function score(roundResult) {
 
     if ((playerPoints == 3) || (computerPoints == 3)) {
         if (playerPoints > computerPoints) {
-            console.log('You defeated the computer! Congratulations!');
+            let result = 'You defeated the computer! Congratulations!';
+            appendText(result);
+
+            const matchResult = document.querySelector('#match-result');
+            matchResult.innerText = result;
+
             return true;
         } else {
-            console.log('Game over! Better luck next time');
+            let result = 'Game over! Better luck next time';
+            appendText(result);
+
+            const matchResult = document.querySelector('#match-result');
+            matchResult.innerText = result;
+
             return true;
         }
     }
