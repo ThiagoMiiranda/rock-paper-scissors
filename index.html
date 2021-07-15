@@ -5,26 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock-Paper-Scissors</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div>
-        <h1>Rock-Paper-Scissors</h1>
+    <div class="container">
+        <div class="title">
+            <h1>Rock-Paper-Scissors</h1>
+        </div>
+        <div class="score">
+            <p>Round <strong id="round">0</strong></p>
+            <p>Win - <strong id="win">0</strong> // Loss - <strong id="loss">0</strong></p>
+        </div>
+        <div class="try-again-div" style="visibility: hidden; position: absolute;">
+            <p>The match is over</p>
+            <p id="match-result"></p>
+            <button id="play-again-btn">Play Again</button>
+        </div>
+        <div class="buttons-container">
+            <button class="game-button">Rock</button>
+            <button class="game-button">Paper</button>
+            <button class="game-button">Scissors</button>
+        </div>
+        <div class="play-feed"></div>
     </div>
-    <div>
-        <p>Round <strong id="round">0</strong></p>
-        <p>Win - <strong id="win">0</strong> // Loss - <strong id="loss">0</strong></p>
-    </div>
-    <div class="try-again-div" style="visibility: hidden; position: absolute;">
-        <p>The match is over</p>
-        <p id="match-result"></p>
-        <button id="play-again-btn">Play Again</button>
-    </div>
-    <div class="buttons-container">
-        <button class="game-button">Rock</button>
-        <button class="game-button">Paper</button>
-        <button class="game-button">Scissors</button>
-    </div>
-    <div class="play-feed"></div>
 
     <script src="script2.js"></script>
 </body>

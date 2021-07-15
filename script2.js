@@ -23,7 +23,7 @@ function updateDOMScore() {
 
 function playRound(playerSelection, computerSelection) {
     if (playerSelection == computerSelection) {
-        let result = "It's a tie! Both choose " + playerSelection;
+        let result = "It's a tie! Both chose " + playerSelection;
         appendText(result);
         return -1;
     } else if (playerSelection == 'rock') {
