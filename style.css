@@ -85,6 +85,7 @@ h1 {
 .play-feed p {
     font-size: 30px;
     text-align: center;
+    color: white;
 }
 
 .try-again-div {
@@ -92,7 +93,7 @@ h1 {
     height: 200px;
     padding-top: 50px;
     border-radius: 3px;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.85);
     text-align: center;
 }
 

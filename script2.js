@@ -109,6 +109,8 @@ buttons.forEach((button) => {
         if (isMatchFinished) {
             const tryAgainDiv = document.querySelector('.try-again-div');
             tryAgainDiv.style.visibility = 'inherit';
+            const btnContainer = document.querySelector('.buttons-container');
+            btnContainer.style.pointerEvents = 'none';
         }
     });
 });
@@ -126,6 +128,9 @@ playAgainBtn.addEventListener('click', (e) => {
 
     const tryAgainDiv = document.querySelector('.try-again-div');
     tryAgainDiv.style.visibility = 'hidden';
+
+    const btnContainer = document.querySelector('.buttons-container');
+    btnContainer.style.pointerEvents = 'all';
 });
 
 
